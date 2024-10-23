@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Formulário</title>
+</head>
+<body>
+
+    <h2>Formulário de Cadastro</h2>
+    <form id="formulario" onsubmit="return validarCampos()">
+        <label for="campoNome">Nome:</label>
+        <input type="text" id="campoNome" required><br><br>
+        
+        <label for="campoEmail">E-mail:</label>
+        <input type="email" id="campoEmail" required><br><br>
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensagem"></p>
+
+    <script>
+        function validarCampos() {
+            let nome = document.getElementById("campoNome").value.trim();
+            let email = document.getElementById("campoEmail").value.trim();
+            let mensagem = document.getElementById("mensagem");
+
+            mensagem.innerText = "";
+
+            if (nome === "") {
+                mensagem.innerText += "O campo nome é obrigatório.\n";
+                return false;
+            }
+
+            if (email === "") {
+                mensagem.innerText += "O campo e-mail é obrigatório.\n";
+                return false;
+            }
+
+            let formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!formatoEmail.test(email)) {
+                mensagem.innerText += "O e-mail inserido é inválido.\n";
+                return false;
+            }
+
+            alert("Formulário enviado com sucesso!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

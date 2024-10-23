@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Aumentar Tamanho do Botão ao Clicar</title>
+</head>
+<body>
+
+    <div id="valor">0</div>
+    <button id="botaoAumentar" onclick="alterarValor(1)">Aumentar</button>
+    <button id="botaoDiminuir" onclick="alterarValor(-1)">Diminuir</button>
+
+    <script>
+        let valorAtual = 0;
+        let tamanhoBotao = 100; // Tamanho inicial em pixels
+
+        function alterarValor(delta) {
+            valorAtual += delta;
+            document.getElementById("valor").innerText = valorAtual;
+
+            if (delta > 0) {
+                tamanhoBotao += 10; 
+                document.getElementById("botaoAumentar").style.width = tamanhoBotao + "px";
+                document.getElementById("botaoAumentar").style.height = "40px"; 
+            } else {
+                tamanhoBotao = Math.max(100, tamanhoBotao - 10); 
+                document.getElementById("botaoDiminuir").style.width = tamanhoBotao + "px";
+                document.getElementById("botaoDiminuir").style.height = "40px"; 
+            }
+        }
+    </script>
+
+</body>
+</html>

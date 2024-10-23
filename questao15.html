@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somar dois números</title>
+    <script>
+        function somar() {
+            let num1 = document.getElementById('numero1').value;
+            let num2 = document.getElementById('numero2').value;
+            let resultado = parseFloat(num1) + parseFloat(num2);
+
+            document.getElementById('resultado').innerText = 'Resultado: ' + resultado;
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return somar()">
+        <input type="number" id="numero1" placeholder="Informe o primeiro número" required>
+        <input type="number" id="numero2" placeholder="Informe o segundo número" required>
+        <button type="submit">Somar</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>

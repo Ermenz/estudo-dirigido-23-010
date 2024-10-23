@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterarando texto de um parágrafo</title>
+    <script>
+        function alterarandoTexto() {
+            let novoTexto = document.getElementById('novoTexto').value;
+            let paragrafo = document.getElementById('textoParagrafo');
+            paragrafo.innerText = novoTexto;
+        }
+    </script>
+</head>
+<body>
+    <p id="textoParagrafo">Texto.</p>
+    <input type="text" id="novoTexto" placeholder="Digite o novo texto">
+    <button onclick="alterarandoTexto()">Alterar Texto</button>
+</body>
+</html>

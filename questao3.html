@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Conteúdo e Estilo</title>
+    <style>
+        .caixa {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            transition: background-color 0.3s;
+        }
+    </style>
+    <script>
+        function modificarCaixas() {
+            let caixas = document.querySelectorAll('.caixa');
+            caixas.forEach((caixa, indice) => {
+                caixa.innerText = 'Caixa ' + (indice + 1);
+                caixa.style.backgroundColor = indice % 3 === 0 ? 'green' : (indice % 2 === 0 ? 'black' : 'blue');
+                caixa.style.fontWeight = 'bold';
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="caixa">Bloco 1</div>
+    <div class="caixa">Bloco 2</div>
+    <div class="caixa">Bloco 3</div>
+    <button onclick="modificarCaixas()">Alterar Conteúdo e Estilo</button>
+</body>
+</html>

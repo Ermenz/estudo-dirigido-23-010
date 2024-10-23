@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Limite aleatório de caracteres </title>
+</head>
+<body>
+
+    <label for="textoEntrada">Digite seu texto (máximo de caracteres):</label><br>
+    <textarea id="textoEntrada" rows="4" cols="50" oninput="atualizarContagem()"></textarea><br>
+    <p id="contador">Restam 0 caracteres.</p>
+
+    <script>
+        let maxCaracteres = gerarNumeroAleatorio();
+        document.getElementById("textoEntrada").setAttribute("maxlength", maxCaracteres);
+
+        function gerarNumeroAleatorio() {
+            return Math.floor(Math.random() * 100) + 1; // Limite entre 1 e 100
+        }
+
+        function atualizarContagem() {
+            let entradaTexto = document.getElementById("textoEntrada");
+            let contadorTexto = document.getElementById("contador");
+            let caracteresRestantes = maxCaracteres - entradaTexto.value.length;
+
+            if (entradaTexto.value.length === 0) {
+                maxCaracteres = gerarNumeroAleatorio();
+                entradaTexto.setAttribute("maxlength", maxCaracteres);
+                contadorTexto.innerText = `Restam ${maxCaracteres} caracteres.`;
+            } else {
+                contadorTexto.innerText = `Restam ${caracteresRestantes} caracteres.`;
+            }
+        }
+    </script>
+
+</body>
+</html>

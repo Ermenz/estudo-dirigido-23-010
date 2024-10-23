@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Contagem Regressiva</title>
+</head>
+<body>
+
+    <input type="number" id="entradaNumero" placeholder="Insira um número" required>
+    <button onclick="contagem()">Começar contagem regressiva</button>
+    <p id="resultado">A contagem ainda não começou.</p>
+
+    <script>
+        function contagem() {
+            let numeroInicial = parseInt(document.getElementById("entradaNumero").value);
+            const paragrafoResultado = document.getElementById("resultado");
+
+            if (isNaN(numeroInicial) || numeroInicial <= 0) {
+                paragrafoResultado.innerText = "Por favor, insira um número válido maior que zero.";
+                return;
+            }
+
+            paragrafoResultado.innerText = `Contagem regressiva: ${numeroInicial}`;
+            const intervaloContagem = setInterval(() => {
+                numeroInicial--;
+                if (numeroInicial < 0) {
+                    clearInterval(intervaloContagem);
+                    paragrafoResultado.innerText = "A contagem terminou!";
+                } else {
+                    paragrafoResultado.innerText = `Contagem regressiva: ${numeroInicial}`;
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+</html>

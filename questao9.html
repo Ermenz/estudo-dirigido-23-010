@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Texto ao Passar o Mouse</title>
+    <style>
+        #texto {
+            font-size: 20px;
+            color: #333;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+
+ <h1>mudar texto ao passar ao mouse</h1>
+
+    <div id="texto" 
+         onmouseover="alterarTexto()" 
+         onmouseout="restaurarTexto()">
+        Passe o mouse sobre mim!
+    </div>
+
+    <script>
+        const textoOriginal = "Passe o mouse";
+        const textoAlterado = "😱";
+
+        function alterarTexto() {
+            document.getElementById("texto").innerText = textoAlterado;
+        }
+
+        function restaurarTexto() {
+            document.getElementById("texto").innerText = textoOriginal;
+        }
+    </script>
+
+</body>
+</html>

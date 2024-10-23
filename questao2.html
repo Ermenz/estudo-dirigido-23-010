@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Cor de Fundo</title>
+
+    <h1>Escreva as cores em inglês</h1>
+
+    <style>
+        #caixa {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function mudarCor() {
+            let corNova = document.getElementById('entradaCor').value;
+            document.getElementById('caixa').style.backgroundColor = corNova;
+        }
+    </script>
+</head>
+<body>
+    <div id="caixa">
+        A cor aperecerá aqui.
+    </div>
+    <input type="text" id="entradaCor" placeholder="Digite uma cor (ex: red, )">
+    <button onclick="mudarCor()">Alterar Cor de Fundo</button>
+</body>
+</html>
